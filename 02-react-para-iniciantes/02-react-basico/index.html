@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionando React</title>
+</head>
+<body>
+<div id="react_mount"></div>
+
+<!--Load React-->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!--Loading our react component-->
+<script type="text/jsx">
+    'use strict'
+    const domContainer = document.querySelector('#react_mount');
+    const root = ReactDOM.createRoot(domContainer);
+
+    function Comprar(){
+        const [contador, setContador] = React.useState(0);
+        function onClick() {
+            setContador(contador + 1);
+        }
+        return (
+            <React.Fragment>
+                <h1>Chocolate Cadbury</h1>
+                <p>Unidades compradas: {contador}</p>
+                <button onClick={onClick}>Comprar</button>
+            </React.Fragment>
+        );
+    }
+
+    function App(){
+        return (<div><Comprar/></div>);
+    }
+
+    root.render(<App/>);
+</script>
+</body>
+</html>

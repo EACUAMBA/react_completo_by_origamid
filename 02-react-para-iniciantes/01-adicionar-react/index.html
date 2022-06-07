@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionando React</title>
+</head>
+<body>
+<div id="react_mount"></div>
+
+<!--Load React-->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!--Loading our react component-->
+<script type="text/jsx">
+    'use strict'
+    const domContainer = document.querySelector('#react_mount');
+    const root = ReactDOM.createRoot(domContainer);
+    const createElement = React.createElement;
+    class LikeButton extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state = {liked: false};
+        }
+
+        render(){
+            if(this.state.liked){
+                return 'Você gostou disto!';
+            }
+
+            return createElement('button', {onClick: () => this.state({liked: true})}, 'Gostar');
+        }
+    }
+
+    function NaoGosta() {
+        return <button>Não Gosto</button>;
+    }
+    root.render(createElement(LikeButton));
+    root.render(<NaoGosta/>);
+
+</script>
+</body>
+</html>
