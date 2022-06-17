@@ -1,15 +1,22 @@
 import React from 'react';
 
 
-const Select = ({options, value, setValue, ...rest}) => {
+const Radio = ({radios, value, setValue, ...rest}) => {
     return (
         <>
-            <select value={value} onChange={({target})=>setValue(target.value)} {...rest}>
-                <option disabled value={''}>Selecione...</option>
-                {options.map((option)=> <option value={option}>{option}</option>)}
-            </select>
+            {
+                radios.map((radio) => {
+                    return (
+
+                            <label key={radio}>
+                                {radio}
+                                <input type={'radio'} value={radio} checked={value === radio} onChange={({target}) => setValue(target.value)} {...rest}/>
+                            </label>
+                    );
+                })
+            }
         </>
     );
 };
 
-export default Select;
+export default Radio;
