@@ -39,9 +39,7 @@ const App = () => {
 
     function emailOnBlurHandler(event) {
         const emailTemp = event.target.value;
-        if (validaEmail(emailTemp)) {
-            setEmail(emailTemp)
-        }
+        validaEmail(emailTemp)
     }
 
     function emailFormOnSubmitHandler(event) {
