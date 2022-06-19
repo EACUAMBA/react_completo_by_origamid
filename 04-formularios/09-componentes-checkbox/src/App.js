@@ -3,6 +3,7 @@ import Input from "./Input";
 import Select from "./Select";
 import Radio from "./Radio";
 import Checkbox from "./Checkbox";
+import {InputText} from 'primereact/inputtext';
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
     return (
         <>
             <form>
+<InputText />
                 <Checkbox checkboxes={['Mamão', 'Ananaz', 'Melancia', 'Pera']} setValue={setFrutas} value={frutas}/>
                 <Checkbox checkboxes={['Li e aceito os termos']} setValue={setTermos} value={termos}/>
                 <Input id={'nome'} label={'Nome'} name={'nome'} value={nome} setValue={setNome}/>
