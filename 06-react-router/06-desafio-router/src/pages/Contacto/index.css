@@ -1,0 +1,29 @@
+.contacto{
+    display: flex;
+    gap: 16px;
+    animation: introduce .8s forwards;
+}
+
+@keyframes introduce {
+    from{
+        opacity: 0;
+        transform: translate3d(-32px, 0, 0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.contacto .img{
+    width: 400px;
+    height: 700px;
+    background: #5b1e34;
+}
+
+.contacto .contactos p::before{
+    content: '';
+    display: inline-block;
+    width: 16px;
+    margin-right: 8px;
+    border-bottom: 4px solid #5b1e34;
+}
