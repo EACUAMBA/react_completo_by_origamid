@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Exemplo from "./components/Exemplo";
 
 function changeState(state, action) {
     switch (action){
@@ -23,6 +24,8 @@ function App() {
             <button onClick={()=>dispatch('+')}>+</button>
             <span style={{margin: '16px', fontWeight: 'bolder'}}>{state}</span>
             <button onClick={()=>dispatch('-')}>-</button>
+            <hr/>
+            <Exemplo/>
         </>
     );
 }
