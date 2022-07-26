@@ -10,7 +10,7 @@ import stylesButton from "./../../../components/forms/Button/index.module.css"
 
 const LoginForm = () => {
     const username = useForm();
-    const password = useForm('password');
+    const password = useForm();
     const {userLogin, getUser, error, loading} = React.useContext(UserContext);
 
     React.useEffect(()=>{
@@ -42,7 +42,6 @@ const LoginForm = () => {
                 <p>Ainda não possui conta? Cadastre-se no site.</p>
                 <Link className={stylesButton.button} to={'/login/criar'}>Cadastro</Link>
             </div>
-            <Link to={'/login/criar'}>Cadastro</Link>
         </section>
     );
 };
