@@ -1,5 +1,5 @@
 import React from 'react';
-import {TOKEN_POST, USER_GET} from "./api";
+import {TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET} from "./api";
 
 export const UserContext = React.createContext();
 
@@ -9,14 +9,39 @@ export const UserStorage = ({children}) => {
     const [loading, setLoading] = React.useState(null);
     const [error, setError] = React.useState(null);
 
-    async function getUser(token){
+    React.useEffect(() => {
+        async function autoLogin() {
+            const token = window.localStorage.getItem('token');
+            if (token) {
+                try {
+                    setError(null)
+                    setLoading(true)
+                    const {url, options} = TOKEN_VALIDATE_POST(token)
+                    const response = await fetch(url, options);
+                    const json = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error('Token inválido!')
+                    }
+                    await getUser(token)
+                } catch (error) {
+                    userLogout()
+                } finally {
+                    setLoading(false)
+                }
+            }
+        }
+
+        autoLogin();
+    }, [])
+
+    async function getUser(token) {
         const {url, options} = USER_GET(token);
         const response = await fetch(url, options);
         const json = await response.json();
 
         setData(json);
-        setLogin(true);
-        console.log(json)
+        setLogin(true)
     }
 
     async function userLogin(username, password) {
@@ -28,8 +53,16 @@ export const UserStorage = ({children}) => {
         getUser(token)
     }
 
+    async function userLogout() {
+        setData(null);
+        setLoading(false);
+        setLogin(false);
+        setError(null);
+        window.localStorage.removeItem('token')
+    }
+
     return (
-        <UserContext.Provider value={{userLogin, getUser, data}}>
+        <UserContext.Provider value={{userLogin, getUser, data, userLogout}}>
             {children}
         </UserContext.Provider>
     );
