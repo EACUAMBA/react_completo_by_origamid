@@ -11,14 +11,14 @@ import stylesButton from "./../../../components/forms/Button/index.module.css"
 const LoginForm = () => {
     const username = useForm();
     const password = useForm();
-    const {userLogin, getUser, error, loading} = React.useContext(UserContext);
+    const {userLogin, getUser, error, loading, login, data} = React.useContext(UserContext);
 
     React.useEffect(()=>{
         const token = window.localStorage.getItem('token');
         if(token){
             getUser(token);
         }
-    }, [getUser])
+    }, [getUser, login, data])
 
     async function handleSubmit(event) {
         event.preventDefault();
