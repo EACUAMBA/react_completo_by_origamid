@@ -7,19 +7,19 @@ const UserHeader = () => {
     const [title, setTitle] = React.useState('Sem title');
     const location = useLocation();
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
         const {pathname} = location;
-        switch (pathname){
-            case '/conta/estatisticas':{
+        switch (pathname) {
+            case '/conta/estatisticas': {
                 setTitle('Estatísticas')
                 break;
             }
-            case '/conta':{
-                setTitle('Conta');
+            case '/conta/postar': {
+                setTitle('Poste Sua Foto')
                 break;
             }
-            case '/conta/postar':{
-                setTitle('Poste Sua Foto')
+            default: {
+                setTitle('Conta');
                 break;
             }
         }
