@@ -40,14 +40,7 @@
     display: flex;
 }
 
-.visualizacao::before{
-    width: 1rem;
-    height: 1rem;
-    content: '';
-    display: inline-block;
-    margin-right: .25rem;
-    background: url('./../../../assets/visualizacao.svg') no-repeat;
-}
+
 
 @media (max-width: 40rem) {
     .feed{

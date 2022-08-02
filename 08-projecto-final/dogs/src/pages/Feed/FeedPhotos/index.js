@@ -6,7 +6,7 @@ import {PHOTOS_GET} from "../../../api";
 import Error from "../../../components/helper/Error";
 import Loading from "../../../components/helper/Loading";
 
-const FeedPhotos= () => {
+const FeedPhotos= ({setModalPhoto}) => {
     const {data, loading, error, request} = useFetch();
 
     React.useEffect(
@@ -14,7 +14,6 @@ const FeedPhotos= () => {
             async function fetchPhotos() {
                 const {url, options} = PHOTOS_GET({page: 1, total: 6, user: 0});
                 const requestResult = await request(url, options);
-                console.log(requestResult);
             }
             fetchPhotos();
         }
@@ -27,7 +26,8 @@ const FeedPhotos= () => {
         <ul className={`animeLeft ${styles.feed}`}>
             {
                 data.map(photo => {
-                    return <li className={styles.photo} key={photo.id}><FeedPhotosItem  photo={photo}/></li>
+                    console.log('photo', photo)
+                    return <li onClick={()=>setModalPhoto(photo)} className={styles.photo} key={photo.id}><FeedPhotosItem photo={photo}/></li>
                 })
             }
         </ul>
