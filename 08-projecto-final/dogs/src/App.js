@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import {UserStorage} from "./UserContext";
 import User from "./pages/User";
 import ProtectedRoute from "./components/helper/ProtectedRoute";
+import React from "react";
 
 function App() {
     return (
