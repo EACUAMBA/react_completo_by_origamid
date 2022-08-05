@@ -26,7 +26,6 @@ const FeedPhotos= ({setModalPhoto}) => {
         <ul className={`animeLeft ${styles.feed}`}>
             {
                 data.map(photo => {
-                    console.log('photo', photo)
                     return <li onClick={()=>setModalPhoto(photo)} className={styles.photo} key={photo.id}><FeedPhotosItem photo={photo}/></li>
                 })
             }
