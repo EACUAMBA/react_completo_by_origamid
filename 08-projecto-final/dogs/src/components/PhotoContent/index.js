@@ -19,7 +19,7 @@ const PhotoContent = ({data}) => {
                         {
                             user.data && user.data.username === photo.author
                                 ?
-                                <PhotoDelete/>
+                                <PhotoDelete id={photo.id}/>
                                 :
                                 <Link to={`/profile/${photo.author}`}>@{photo.author}</Link>
                         }

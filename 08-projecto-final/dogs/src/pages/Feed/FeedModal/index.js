@@ -5,6 +5,7 @@ import {PHOTO_GET} from "../../../api";
 import Error from "../../../components/helper/Error";
 import Loading from "../../../components/helper/Loading";
 import PhotoContent from "../../../components/PhotoContent";
+import {UserContext} from "../../../UserContext";
 
 const FeedModal = ({photo, setModalPhoto}) => {
 
@@ -20,7 +21,6 @@ setModalPhoto(null)
         async function fetchPhoto(){
             const {url, options} = PHOTO_GET(photo.id);
             const requestResponse = await request(url, options);
-            console.log(requestResponse)
         }
         fetchPhoto()
     }, [])
