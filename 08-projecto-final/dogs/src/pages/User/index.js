@@ -7,7 +7,6 @@ import UserStats from "./UserStats";
 import UserHeader from "../../components/UserHeader";
 
 const User = props => {
-console.log('user')
     return (
         <section className={'container'}>
             <UserHeader/>
