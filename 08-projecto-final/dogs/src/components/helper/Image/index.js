@@ -6,7 +6,6 @@ const Image = ({alt, ...props}) => {
     function handleLoad(event) {
         event.target.style.opacity = 1;
         setSkeleton(false)
-        console.log(skeleton)
     }
     return (
         <div className={styles.wrapper}>
