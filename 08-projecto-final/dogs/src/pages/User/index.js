@@ -6,6 +6,7 @@ import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
 import UserHeader from "../../components/UserHeader";
 import {UserContext} from "../../UserContext";
+import NotFound404 from "../../components/NotFound404";
 
 const User = props => {
     const {data} = React.useContext(UserContext);
@@ -17,6 +18,7 @@ const User = props => {
                 <Route path={'/'} element={<Feed user={data.id}/>}/>
                 <Route path={'postar'} element={<UserPhotoPost/>}/>
                 <Route path={'estatisticas'} element={<UserStats/>}/>
+                <Route path={'*'} element={<NotFound404/>}/>
             </Routes>
         </section>
     );

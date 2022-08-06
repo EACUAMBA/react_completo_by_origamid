@@ -9,6 +9,7 @@ import User from "./pages/User";
 import ProtectedRoute from "./components/helper/ProtectedRoute";
 import Photo from "./pages/Photo";
 import UserProfile from "./pages/UserProfile";
+import NotFound404 from "./components/NotFound404";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                         <Route path={'conta/*'} element={<ProtectedRoute><User/></ProtectedRoute>}/>
                         <Route path={'foto/:id'} element={<Photo/>}/>
                         <Route path={'perfil/:user'} element={<UserProfile/>}/>
+                        <Route path={'*'} element={<NotFound404/>}/>
                     </Routes>
                     <Footer/>
                 </UserStorage>
