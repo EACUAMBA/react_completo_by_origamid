@@ -3,6 +3,13 @@ import styles from './index.module.css';
 import FeedModal from "./FeedModal";
 import FeedPhotos from "./FeedPhotos";
 import PropTypes from 'prop-types';
+import Head from "../../components/helper/Head";
+import {Route, Routes} from "react-router-dom";
+import LoginForm from "../Login/LoginForm";
+import LoginCreate from "../Login/LoginCreate";
+import LoginPasswordLost from "../Login/LoginPasswordLost";
+import LoginPasswordReset from "../Login/LoginPasswordReset";
+import NotFound404 from "../../components/NotFound404";
 
 const Feed = ({user}) => {
     const [modalPhoto, setModalPhoto] = React.useState(null);
@@ -34,6 +41,7 @@ const Feed = ({user}) => {
 
     return (
         <div>
+            <Head title={'Feed'} description={'Site Dogs, sua rede para cachoros.'}/>
             {modalPhoto && <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto}/>}
             {
                 pages.map((page) => {
