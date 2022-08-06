@@ -1,3 +1,10 @@
 .login{
 
 }
+
+.mailSent{
+    color: #0ecc0e;
+    background: #cfffcf;
+    padding: 1rem;
+    width: 100%;
+}
