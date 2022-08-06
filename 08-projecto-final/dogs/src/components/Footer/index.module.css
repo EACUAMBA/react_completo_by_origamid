@@ -1,3 +1,14 @@
-.footer{
+.footer {
+    display: flex;
+    min-height: 10rem;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffbb11;
+}
 
+.footer p{
+    color: #333333;
 }
