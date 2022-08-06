@@ -40,6 +40,9 @@ const Feed = ({user}) => {
                                                          setInfinite={setInfinite}/></span>
                 })
             }
+            {
+                (infinite) ? <section className={`${styles.info}`}>Acabaram as fotos.</section> : null
+            }
         </div>
     );
 };
