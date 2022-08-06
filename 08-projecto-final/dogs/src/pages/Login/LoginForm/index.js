@@ -33,7 +33,7 @@ const LoginForm = () => {
                 <Input type={'text'} name={'username'} label={'Utilizador'} {...username}/>
                 <Input type={'password'} name={'password'} label={'Senha'} {...password}/>
                 <Button disabled={loading}>Entrar</Button>
-                <Error error={error}/>
+                <Error error={error && 'Dados incorrectos.'}/>
             </form>
             <Link className={styles.perdeu} to={'/login/perdeu'}>Perdeu a senha?</Link>
 

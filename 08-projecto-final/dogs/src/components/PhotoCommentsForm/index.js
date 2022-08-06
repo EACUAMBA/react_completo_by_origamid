@@ -9,6 +9,7 @@ import styles from './index.module.css'
 const PhotoCommentsForm = ({id, setComments, single}) => {
     const {request, error} = useFetch();
     const [comment, setComment] = React.useState('');
+    const sendButton = React.useRef();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -16,13 +17,15 @@ const PhotoCommentsForm = ({id, setComments, single}) => {
         const {response, json} = await request(url, options);
         if(response.ok){
             setComments((comments)=> [...comments, json])
+            setComment('')
+            sendButton.current.blur();
         }
     }
 
     return (
         <form onSubmit={handleSubmit} className={`${styles.form} ${single ? styles.single : ''}`}>
             <textarea className={styles.textarea} name="comment" id="comment" placeholder={'Comente..'} value={comment} onChange={({target})=>setComment(target.value)}/>
-            <button className={styles.button}><Enviar/></button>
+            <button ref={sendButton} className={styles.button}><Enviar/></button>
             <Error error={error}/>
         </form>
     );

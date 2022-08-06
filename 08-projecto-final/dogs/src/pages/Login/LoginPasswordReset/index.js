@@ -38,7 +38,7 @@ const LoginPasswordReset = () => {
         }
     }
     return (
-        <section className={styles.resetar}>
+        <section className={`animeLeft ${styles.resetar}`}>
             <h1 className={`title`}>Redefinir senha</h1>
             <form onSubmit={handleClick}>
                 <Input label={'Nova senha'} type={'text'} name={'senha'} {...password}/>

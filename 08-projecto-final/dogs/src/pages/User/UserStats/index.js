@@ -3,7 +3,6 @@ import useFetch from "../../../hooks/useFetch";
 import {STATS_GET} from "../../../api";
 import Loading from "../../../components/helper/Loading";
 import Error from "../../../components/helper/Error";
-import {ReactComponent} from "*.svg";
 const UserStatsGraphs = React.lazy(()=> import("../../../components/UserStatsGraphs")) ;
 
 const UserStats = () => {
